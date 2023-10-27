@@ -1,0 +1,33 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Projects\\recaptcha\\RazorClassLibrary1\\RazorClassLibrary1\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\Dev.Util.Recaptcha.bundle.scp.css",
+      "PackagePath": "staticwebassets\\Dev.Util.Recaptcha.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Projects\\recaptcha\\RazorClassLibrary1\\RazorClassLibrary1\\wwwroot\\background.png",
+      "PackagePath": "staticwebassets\\background.png"
+    },
+    {
+      "Id": "C:\\Projects\\recaptcha\\RazorClassLibrary1\\RazorClassLibrary1\\wwwroot\\exampleJsInterop.js",
+      "PackagePath": "staticwebassets\\exampleJsInterop.js"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.Dev.Util.Recaptcha.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.Dev.Util.Recaptcha.props",
+      "PackagePath": "build\\Dev.Util.Recaptcha.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.Dev.Util.Recaptcha.props",
+      "PackagePath": "buildMultiTargeting\\Dev.Util.Recaptcha.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.Dev.Util.Recaptcha.props",
+      "PackagePath": "buildTransitive\\Dev.Util.Recaptcha.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

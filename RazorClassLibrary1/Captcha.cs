@@ -1,0 +1,216 @@
+﻿using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Rendering;
+using Microsoft.AspNetCore.Components.Web;
+using SkiaSharp;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ReCaptcha
+{
+    public class Captcha : ComponentBase
+    {
+
+        [Parameter]
+        public int Width { get; set; } = 170;
+
+        [Parameter]
+        public int Height { get; set; } = 40;
+
+        [Parameter]
+        public int CharNumber { get; set; } = 5;
+
+        [Parameter]
+        public EventCallback<MouseEventArgs> OnRefresh { get; set; }
+
+        private string _captchaWord;
+        [Parameter]
+        public string CaptchaWord
+        {
+            get => _captchaWord;
+            set
+            {
+                if (_captchaWord != value)
+                {
+                    _captchaWord = value;
+                    Initialization();
+                }
+            }
+        }
+
+        [Parameter]
+        public EventCallback<string> CaptchaWordChanged { get; set; }
+
+        private async Task OnRefreshInternal()
+        {
+            CaptchaWord = Tools.GetCaptchaWord(CharNumber);
+            Initialization();
+            await CaptchaWordChanged.InvokeAsync(CaptchaWord);
+        }
+
+        private Random RandomValue { get; set; }
+        private List<Letter> Letters;
+        private SKColor _bgColor;
+
+        public Captcha()
+        {
+            Initialization();
+        }
+
+
+        private void Initialization()
+        {
+            if (string.IsNullOrEmpty(CaptchaWord)) { 
+            
+                return;
+            } 
+
+            RandomValue = new Random();
+
+            Byte red = (byte)RandomValue.Next(70, 100);
+            Byte green = (byte)RandomValue.Next(60, 80);
+            Byte blue = (byte)RandomValue.Next(50, 90);
+
+            _bgColor = new SKColor(red,green,blue);
+
+
+            string[] fontFamilies = new string[] { "Courier", "Arial", "Verdana", "Times New Roman" };
+
+            Letters = new List<Letter>();
+
+            if (!string.IsNullOrEmpty(CaptchaWord))
+            {
+                foreach (char character in CaptchaWord)
+                {
+                    var letter = new Letter()
+                    {
+                        Value = character.ToString(),
+                        Angle = RandomValue.Next(-15, 25),
+                        ForeColor = new SKColor((byte)RandomValue.Next(100, 256),
+                                                (byte)RandomValue.Next(110, 256),
+                                                (byte)RandomValue.Next(90, 256)),
+                        Family = fontFamilies[RandomValue.Next(0, fontFamilies.Length)],
+                    };
+
+                    Letters.Add(letter);
+                }
+            }
+
+        }
+
+
+        protected override void BuildRenderTree(RenderTreeBuilder builder)
+        {
+
+            string picture = "";
+            if (RandomValue == null) {
+
+                return;
+
+            };
+
+            if (string.IsNullOrEmpty(CaptchaWord))
+            {
+                return;
+            }
+
+            SKImageInfo imageInfo = new(Width, Height);
+            using (var surface = SKSurface.Create(imageInfo))
+            {
+                var canvas = surface.Canvas;
+                canvas.Clear(_bgColor);
+
+                using (SKPaint paint = new SKPaint())
+                {
+                    float x = 10;
+
+                    foreach (Letter l in Letters)
+                    {
+                        paint.Color = l.ForeColor;
+                        paint.Typeface = SKTypeface.FromFamilyName(l.Family);
+                        paint.TextAlign = SKTextAlign.Left;
+                        paint.TextSize = RandomValue.Next(Height / 2, (Height / 2) + (Height / 4));
+                        paint.FakeBoldText = true;
+                        paint.IsAntialias = true;
+
+                        SKRect rect = new SKRect();
+                        float width = paint.MeasureText(l.Value, ref rect);
+
+                        float textWidth = width;
+                        var y = (Height - rect.Height);
+
+                        canvas.Save();
+
+                        canvas.RotateDegrees(l.Angle, x, y);
+                        canvas.DrawText(l.Value, x, y, paint);
+
+                        // Draw red rectangle to debug :
+                        //var y2 = GetNewY(x, y, rect.Width, l.Angle);
+                        //var paint1 = new SKPaint
+                        //{
+                        //    TextSize = 64.0f,
+                        //    IsAntialias = true,
+                        //    Color = new SKColor(255, 0, 0),
+                        //    Style = SKPaintStyle.Stroke
+                        //};
+                        //canvas.DrawRect(rect.Left + x, y2 + rect.Top, rect.Width, rect.Height, paint1);
+
+                        //canvas.Restore();
+
+                        //x += textWidth + 10;*/
+                    }
+
+                    canvas.DrawLine(0, RandomValue.Next(0, Height), Width, RandomValue.Next(0, Height), paint);
+                    canvas.DrawLine(0, RandomValue.Next(0, Height), Width, RandomValue.Next(0, Height), paint);
+                    paint.Style = SKPaintStyle.Stroke;
+                    canvas.DrawOval(RandomValue.Next(-Width, Width), RandomValue.Next(-Height, Height), Width, Height, paint);
+                }
+
+
+                // save the file
+                MemoryStream memoryStream = new MemoryStream();
+
+                using (var image = surface.Snapshot()) {
+
+                    using (var data = image.Encode(SKEncodedImageFormat.Png, 75)) { 
+                    
+                        data.SaveTo(memoryStream);
+                    
+                    }
+                }
+
+                string imageBase64Data2 = Convert.ToBase64String(memoryStream.ToArray());
+                picture = string.Format("data:image/gif;base64,{0}", imageBase64Data2);
+
+            }
+
+            //---
+
+          
+            var seq = 0;
+            builder.OpenElement(++seq, "div");
+            builder.AddAttribute(++seq, "class", "divCaptach");
+            {
+                builder.OpenElement(++seq, "img");
+                builder.AddAttribute(++seq, "src", picture);
+                builder.CloseElement();
+
+                builder.OpenElement(++seq, "button");
+                {
+                    builder.AddAttribute(++seq, "class", "btn-refresh");
+                    builder.AddAttribute(++seq, "type", "button");
+                    builder.AddAttribute(++seq, "onclick", EventCallback.Factory.Create<MouseEventArgs>(this, () => OnRefreshInternal()));
+                }
+                builder.CloseElement();
+            }
+            builder.CloseElement();
+
+
+            base.BuildRenderTree(builder);
+        }
+
+    }
+
+}

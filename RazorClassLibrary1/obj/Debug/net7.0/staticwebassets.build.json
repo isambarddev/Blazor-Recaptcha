@@ -1,0 +1,88 @@
+{
+  "Version": 1,
+  "Hash": "Dum6KfTUg9I8dn7vufyZ0tkuc+9X4xAeLHwCVLPQ0VI=",
+  "Source": "Dev.Util.Recaptcha",
+  "BasePath": "_content/Dev.Util.Recaptcha",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "Dev.Util.Recaptcha\\wwwroot",
+      "Source": "Dev.Util.Recaptcha",
+      "ContentRoot": "C:\\Projects\\recaptcha\\RazorClassLibrary1\\RazorClassLibrary1\\wwwroot\\",
+      "BasePath": "_content/Dev.Util.Recaptcha",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Projects\\recaptcha\\RazorClassLibrary1\\RazorClassLibrary1\\obj\\Debug\\net7.0\\scopedcss\\bundle\\Dev.Util.Recaptcha.styles.css",
+      "SourceId": "Dev.Util.Recaptcha",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Projects\\recaptcha\\RazorClassLibrary1\\RazorClassLibrary1\\obj\\Debug\\net7.0\\scopedcss\\bundle\\",
+      "BasePath": "_content/Dev.Util.Recaptcha",
+      "RelativePath": "Dev.Util.Recaptcha.styles.css",
+      "AssetKind": "All",
+      "AssetMode": "CurrentProject",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "ScopedCss",
+      "AssetTraitValue": "ApplicationBundle",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Projects\\recaptcha\\RazorClassLibrary1\\RazorClassLibrary1\\obj\\Debug\\net7.0\\scopedcss\\bundle\\Dev.Util.Recaptcha.styles.css"
+    },
+    {
+      "Identity": "C:\\Projects\\recaptcha\\RazorClassLibrary1\\RazorClassLibrary1\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\Dev.Util.Recaptcha.bundle.scp.css",
+      "SourceId": "Dev.Util.Recaptcha",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Projects\\recaptcha\\RazorClassLibrary1\\RazorClassLibrary1\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\",
+      "BasePath": "_content/Dev.Util.Recaptcha",
+      "RelativePath": "Dev.Util.Recaptcha.bundle.scp.css",
+      "AssetKind": "All",
+      "AssetMode": "Reference",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "ScopedCss",
+      "AssetTraitValue": "ProjectBundle",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Projects\\recaptcha\\RazorClassLibrary1\\RazorClassLibrary1\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\Dev.Util.Recaptcha.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Projects\\recaptcha\\RazorClassLibrary1\\RazorClassLibrary1\\wwwroot\\background.png",
+      "SourceId": "Dev.Util.Recaptcha",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Projects\\recaptcha\\RazorClassLibrary1\\RazorClassLibrary1\\wwwroot\\",
+      "BasePath": "_content/Dev.Util.Recaptcha",
+      "RelativePath": "background.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\background.png"
+    },
+    {
+      "Identity": "C:\\Projects\\recaptcha\\RazorClassLibrary1\\RazorClassLibrary1\\wwwroot\\exampleJsInterop.js",
+      "SourceId": "Dev.Util.Recaptcha",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Projects\\recaptcha\\RazorClassLibrary1\\RazorClassLibrary1\\wwwroot\\",
+      "BasePath": "_content/Dev.Util.Recaptcha",
+      "RelativePath": "exampleJsInterop.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\exampleJsInterop.js"
+    }
+  ]
+}

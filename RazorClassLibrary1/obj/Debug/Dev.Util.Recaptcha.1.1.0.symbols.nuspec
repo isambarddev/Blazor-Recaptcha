@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Dev.Util.Recaptcha</id>
+    <version>1.1.0</version>
+    <title>Dev.Util.Recaptcha</title>
+    <authors>ReCaptcha</authors>
+    <license type="file">LICENSE.txt</license>
+    <licenseUrl>https://aka.ms/deprecateLicenseUrl</licenseUrl>
+    <readme>README.md</readme>
+    <description>Library Recaptcha</description>
+    <dependencies>
+      <group targetFramework="net7.0">
+        <dependency id="Microsoft.AspNetCore.Components.Authorization" version="7.0.13" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.AspNetCore.Components.Web" version="7.0.11" exclude="Build,Analyzers" />
+        <dependency id="SkiaSharp" version="2.88.6" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Projects\recaptcha\RazorClassLibrary1\RazorClassLibrary1\bin\Debug\net7.0\ReCaptcha.pdb" target="lib\net7.0\ReCaptcha.pdb" />
+    <file src="C:\Projects\recaptcha\RazorClassLibrary1\RazorClassLibrary1\bin\Debug\net7.0\ReCaptcha.dll" target="lib\net7.0\ReCaptcha.dll" />
+    <file src="C:\Projects\recaptcha\RazorClassLibrary1\RazorClassLibrary1\obj\Debug\net7.0\scopedcss\projectbundle\Dev.Util.Recaptcha.bundle.scp.css" target="staticwebassets\Dev.Util.Recaptcha.bundle.scp.css" />
+    <file src="C:\Projects\recaptcha\RazorClassLibrary1\RazorClassLibrary1\wwwroot\background.png" target="staticwebassets\background.png" />
+    <file src="C:\Projects\recaptcha\RazorClassLibrary1\RazorClassLibrary1\wwwroot\exampleJsInterop.js" target="staticwebassets\exampleJsInterop.js" />
+    <file src="C:\Projects\recaptcha\RazorClassLibrary1\RazorClassLibrary1\obj\Debug\net7.0\staticwebassets\msbuild.Dev.Util.Recaptcha.Microsoft.AspNetCore.StaticWebAssets.props" target="build\Microsoft.AspNetCore.StaticWebAssets.props" />
+    <file src="C:\Projects\recaptcha\RazorClassLibrary1\RazorClassLibrary1\obj\Debug\net7.0\staticwebassets\msbuild.build.Dev.Util.Recaptcha.props" target="build\Dev.Util.Recaptcha.props" />
+    <file src="C:\Projects\recaptcha\RazorClassLibrary1\RazorClassLibrary1\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.Dev.Util.Recaptcha.props" target="buildMultiTargeting\Dev.Util.Recaptcha.props" />
+    <file src="C:\Projects\recaptcha\RazorClassLibrary1\RazorClassLibrary1\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.Dev.Util.Recaptcha.props" target="buildTransitive\Dev.Util.Recaptcha.props" />
+    <file src="C:\Projects\recaptcha\RazorClassLibrary1\RazorClassLibrary1\README.md" target="\README.md" />
+    <file src="C:\Projects\recaptcha\LICENSE.txt" target="\LICENSE.txt" />
+  </files>
+</package>

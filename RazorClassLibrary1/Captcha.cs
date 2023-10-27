@@ -13,6 +13,12 @@ namespace ReCaptcha
     public class Captcha : ComponentBase
     {
 
+        private Random RandomValue { get; set; }
+
+        private List<Letter> Letters;
+        
+        private SKColor _bgColor;
+
         [Parameter]
         public int Width { get; set; } = 170;
 
@@ -49,16 +55,6 @@ namespace ReCaptcha
             Initialization();
             await CaptchaWordChanged.InvokeAsync(CaptchaWord);
         }
-
-        private Random RandomValue { get; set; }
-        private List<Letter> Letters;
-        private SKColor _bgColor;
-
-        public Captcha()
-        {
-            Initialization();
-        }
-
 
         private void Initialization()
         {
@@ -99,7 +95,6 @@ namespace ReCaptcha
             }
 
         }
-
 
         protected override void BuildRenderTree(RenderTreeBuilder builder)
         {
